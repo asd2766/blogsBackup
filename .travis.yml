@@ -38,7 +38,7 @@ branches:
   - master
 env:
   global:
-  - GH_REF: github.com:asd2766/blogs.git
+  - GH_REF: github.com/asd2766/homework1.git
 notifications:
   email:
   - 270092797@qq.com
