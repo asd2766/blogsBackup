@@ -22,3 +22,4 @@ comments: true
 
 1. [阮一峰 持续集成服务 Travis CI 教程](http://www.ruanyifeng.com/blog/2017/12/travis_ci_tutorial.html)
 2. [Travis CI 官方教程](https://docs.travis-ci.com/user/gui-and-headless-browsers/)
+3. [hexo＋Travis-ci＋github构建自动化博客](https://blog.csdn.net/u012373815/article/details/53574002)
