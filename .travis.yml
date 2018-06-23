@@ -5,14 +5,14 @@ cache:
   directories:
   - node_modules
 before_install:
-  - openssl aes-256-cbc -K $encrypted_b22e95f4e500_key -iv $encrypted_b22e95f4e500_iv
-  -in id_rsa.enc -out id_rsa -d
-  - chmod 600 ~/.ssh/id_rsa
-  - eval $(ssh-agent)
-  - ssh-add ~/.ssh/id_rsa
-  - cp .travis/ssh_config ~/.ssh/config
-  - git config --global user.name "asd2766"
-  - git config --global user.email "270092797@qq.com"
+  # - openssl aes-256-cbc -K $encrypted_b22e95f4e500_key -iv $encrypted_b22e95f4e500_iv
+  # -in id_rsa.enc -out id_rsa -d
+  # - chmod 600 ~/.ssh/id_rsa
+  # - eval $(ssh-agent)
+  # - ssh-add ~/.ssh/id_rsa
+  # - cp .travis/ssh_config ~/.ssh/config
+  # - git config --global user.name "asd2766"
+  # - git config --global user.email "270092797@qq.com"
   - export TZ='Asia/Wenzhou'
 install:
   - npm install
@@ -21,18 +21,18 @@ script:
   - hexo d -g
 after_success:
   - hexo deploy
-# after_script:
-#   - git clone https://${GH_REF} .deploy_git
-#   - cd .deploy_git
-#   - git checkout master
-#   - cd ../
-#   - mv .deploy_git/.git/ ./public/
-#   - cd ./public
-#   - git config user.name "asd2766"
-#   - git config user.email "270092797@qq.com"
-#   - git add .
-#   - git commit -m "Travis CI Auto Builder at `date +"%Y-%m-%d %H:%M"`"
-#   - git push --force --quiet "https://${Travis_Token}@${GH_REF}" master:master
+after_script:
+  - git clone https://${GH_REF} .deploy_git
+  - cd .deploy_git
+  - git checkout master
+  - cd ../
+  - mv .deploy_git/.git/ ./public/
+  - cd ./public
+  - git config user.name "asd2766"
+  - git config user.email "270092797@qq.com"
+  - git add .
+  - git commit -m "Travis CI Auto Builder at `date +"%Y-%m-%d %H:%M"`"
+  - git push --force --quiet "https://${Travis_Token}@${GH_REF}" master:master
 branches:
   only:
   - master
