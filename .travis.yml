@@ -1,9 +1,11 @@
 language: node_js
 node_js: stable
+
 cache:
   apt: true
   directories:
   - node_modules
+
 before_install:
   # - openssl aes-256-cbc -K $encrypted_b22e95f4e500_key -iv $encrypted_b22e95f4e500_iv
   # -in id_rsa.enc -out id_rsa -d
@@ -14,13 +16,17 @@ before_install:
   # - git config --global user.name "asd2766"
   # - git config --global user.email "270092797@qq.com"
   - export TZ='Asia/Wenzhou'
+
 install:
   - npm install
+
 script:
   - hexo clean
   - hexo d -g
+
 after_success:
   - hexo deploy
+
 after_script:
   - git clone https://${GH_REF} .deploy_git
   - cd .deploy_git
@@ -33,6 +39,7 @@ after_script:
   - git add .
   - git commit -m "Travis CI Auto Builder at `date +"%Y-%m-%d %H:%M"`"
   - git push --force --quiet "https://${Travis_Token}@${GH_REF}" master:master
+  
 branches:
   only:
   - master
