@@ -3,3 +3,6 @@ User git
 StrictHostKeyChecking no
 IdentityFile ~/.ssh/id_rsa
 IdentitiesOnly yes
+
+# 文件 [.travis.yml]
+mv -fv .travis/ssh-config ~/.ssh/config
