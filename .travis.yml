@@ -39,13 +39,15 @@ after_script:
   - git add .
   - git commit -m "Travis CI Auto Builder at `date +"%Y-%m-%d %H:%M"`"
   - git push --force --quiet "https://${Travis_Token}@${GH_REF}" master:master
-  
+
 branches:
   only:
   - master
+
 env:
   global:
   - GH_REF: github.com/asd2766/blogsBackup.git
+  
 notifications:
   email:
   - 270092797@qq.com
